@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
+		<li th:if="${session.user}" class="d-lg-none">
+			<a th:href="post-job.html">
+				<span class="mr-2" th:text="${session.user.fullName}"> </span>
+			</a>
+		</li>
+		<li class="d-lg-none" th:if="${session.user}">
+			<a th:href="@{/user/logout}">Đăng xuất</a>
+		</li>
+		<li class="d-lg-none" th:unless="${session.user}">
+			<a th:href="@{/user/login}">Đăng nhập</a>
+		</li>
+	</ul>
+</body>
+
+</html>

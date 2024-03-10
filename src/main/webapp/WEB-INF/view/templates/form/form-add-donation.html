@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Add Donation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container">
+		<h3>Thêm đợt quyên góp</h3>
+		<hr>
+
+		<form th:action="@{/admin/donation/addDonation}" th:object="${donation}" method="post">
+			
+			<!--hidden to handle the update-->
+			<input type="hidden" th:field="*{id}">
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="addname" class="col-form-label">Mã đợt quyên góp:</label>
+					<input type="text" th:field="*{code}" class="form-control" id="addname" name="code" required>
+				</div>
+				<div class="col-6">
+					<label for="addcost" class="col-form-label">Tên đợt quyên góp:</label>
+					<input type="text" th:field="*{name}" class="form-control" id="addcost" name="name" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<label for="addname" class="col-form-label">Ngày bắt đầu:</label>
+					<input type="date" th:field="*{startDate}" class="form-control" id="addname" name="startDate" required>
+				</div>
+				<div class="col-6">
+					<label for="addcost" class="col-form-label">Ngày kết thúc:</label>
+					<input type="date" th:field="*{endDate}" class="form-control" id="addcost" name="endDate" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<label for="addname" class="col-form-label">Tổ chức:</label>
+					<input type="text" th:field="*{organizationName}" class="form-control" id="addname" name="organizationName" required>
+				</div>
+				<div class="col-6">
+					<label for="addcost" class="col-form-label">Số điện thoại:</label>
+					<input type="number" th:field="*{phoneNumber}" class="form-control" id="addcost" name="phoneNumber" required>
+				</div>
+				<div class="col-12">
+					<label for="ct_id" class="col-form-label">Nội dung:</label>
+					<textarea name="description" th:field="*{description}" class="form-control" cols="50" rows="5">Nhập nội dung</textarea>
+				</div>
+			</div>
+			<p></p>
+			
+				<a class="btn btn-secondary" th:href="@{/admin/donation/list}">Đóng</a>
+				<button type="submit" class="btn btn-primary">Thêm </button>
+			
+		</form>
+		<hr>
+	</div>
+</body>
+
+</html>

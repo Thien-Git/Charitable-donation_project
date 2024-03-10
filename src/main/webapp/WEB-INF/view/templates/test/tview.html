@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<script th:src="@{/resources/static/user/assets/js/jquery.min.js}"></script>
+	<script th:src="@{/resources/static/user/assets/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/resources/static/user/assets/js/isotope.pkgd.min.js}"></script>
+	<script th:src="@{/resources/static/user/assets/js/stickyfill.min.js}"></script>
+	<script th:src="@{/resources/static/user/assets/js/jquery.fancybox.min.js}"></script>
+	<script th:src="@{/resources/static/user/assets/js/jquery.easing.1.3.js}"></script>
+
+	<script th:src="@{/resources/static/user/assets/js/jquery.waypoints.min.js}"></script>
+	<script th:src="@{/resources/static/user/assets/js/jquery.animateNumber.min.js}"></script>
+	<script th:src="@{/resources/static/user/assets/js/owl.carousel.min.js}"></script>
+	<script th:src="@{/resources/static/user/assets/js/bootstrap-select.min.js}"></script>
+	<script th:src="@{/resources/static/user/assets/js/custom.js}"></script>
+
+	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js}"
+		crossorigin="anonymous"></script>
+	<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js}"
+		crossorigin="anonymous"></script>
+	<script th:src="@{https://unpkg.com/sweetalert/dist/sweetalert.min.js}"></script>
+
+
+	<script th:src="@{https://cdn.jsdelivr.net/npm/sweetalert2@11}"></script>
+
+
+</head>
+
+<body>
+	<p>Tview</p>
+	<p th:text="${msg}"></p>
+	<div th:if="${msg}" class="toast" data-delay="1000" style="position: fixed; top: 100px; left: 40px; z-index: 2000; width: 300px">
+		<script>
+			Swal.fire("Quyên góp thành công");
+		</script>
+	</div>
+
+	<div th:if="${ohno}">
+		<script>
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Something went wrong!",
+				footer: '<a href="#">Why do I have this issue?</a>'
+			});
+		</script>
+	</div>
+</body>
+
+
+</html>
